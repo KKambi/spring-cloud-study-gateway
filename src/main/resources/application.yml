@@ -19,12 +19,14 @@ spring:
           predicates: # 조건절
             - Path=/order-service/**
           filters:
-            - AddRequestHeader=order-request, order-request-header2
-            - AddResponseHeader=order-response, order-response-header2
+#            - AddRequestHeader=order-request, order-request-header2
+#            - AddResponseHeader=order-response, order-response-header2
+            - CustomFilter
         - id: user-service
           uri: http://localhost:8082/user-service/**
           predicates:
             - Path=/user-service/**
           filters:
-            - AddRequestHeader=user-request, user-request-header2
-            - AddResponseHeader=user-response, user-response-header2
+#            - AddRequestHeader=user-request, user-request-header2
+#            - AddResponseHeader=user-response, user-response-header2
+            - CustomFilter
