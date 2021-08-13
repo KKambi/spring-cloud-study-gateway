@@ -21,7 +21,13 @@ spring:
           filters:
 #            - AddRequestHeader=order-request, order-request-header2
 #            - AddResponseHeader=order-response, order-response-header2
-            - CustomFilter
+            - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Spring Cloud Gateway Global Filter
+                preLogger: true
+                postLogger: true
+
         - id: user-service
           uri: http://localhost:8082/user-service/**
           predicates:
