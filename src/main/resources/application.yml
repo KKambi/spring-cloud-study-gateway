@@ -6,7 +6,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhsot:8761/eureka
+      defaultZone: http://localhost:8761/eureka
 
 spring:
   application:
@@ -15,7 +15,7 @@ spring:
     gateway:
       routes:
         - id: order-service
-          uri: http://localhost:8081/order-service/**
+          uri: lb://ORDER-SERVICE
           predicates: # 조건절
             - Path=/order-service/**
           filters:
@@ -27,7 +27,7 @@ spring:
                 postLogger: true
 
         - id: user-service
-          uri: http://localhost:8082/user-service/**
+          uri: lb://USER-SERVICE
           predicates:
             - Path=/user-service/**
           filters:
