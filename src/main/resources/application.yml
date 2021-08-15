@@ -3,8 +3,8 @@ server:
 
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
       defaultZone: http://localhsot:8761/eureka
 
@@ -19,8 +19,6 @@ spring:
           predicates: # 조건절
             - Path=/order-service/**
           filters:
-#            - AddRequestHeader=order-request, order-request-header2
-#            - AddResponseHeader=order-response, order-response-header2
             - name: CustomFilter
             - name: LoggingFilter
               args:
@@ -33,9 +31,8 @@ spring:
           predicates:
             - Path=/user-service/**
           filters:
-#            - AddRequestHeader=user-request, user-request-header2
-#            - AddResponseHeader=user-response, user-response-header2
             - CustomFilter
+
       default-filters:
         - name: GlobalFilter
           args:
