@@ -33,6 +33,11 @@ spring:
           filters:
             - CustomFilter
 
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE
+          predicates:
+            - Path=/catalog-service/**
+
       default-filters:
         - name: GlobalFilter
           args:
