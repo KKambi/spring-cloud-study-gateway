@@ -8,8 +8,8 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
-token:
-  secret: user_token_secret
+#token:
+#  secret: user_token_secret
 
 spring:
   application:
